@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main:  Prints strings of characters using puts function
+ * main: Prints strings of characters using puts function
  *
  * description: write a C programe that puts out strings of characters
  *
