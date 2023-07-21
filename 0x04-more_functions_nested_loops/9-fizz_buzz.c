@@ -3,7 +3,6 @@
 
 /**
  * main - Fizz Buzz word
- * 
  * Return: Always 0
  */
 
