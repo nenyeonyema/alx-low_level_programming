@@ -2,8 +2,8 @@
 
 /**
  * print_rev - this fubction prints the reverse of a string
- * @str: fubction parameter
- * Return: str
+ * @s: fubction parameter
+ * Return: s
  */
 
 void print_rev(char *s)
