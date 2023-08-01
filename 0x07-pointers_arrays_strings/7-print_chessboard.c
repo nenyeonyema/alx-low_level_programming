@@ -4,7 +4,6 @@
  * print_chessboard - a function that prints the chessboard
  *
  * @a: pointer array
- * Return: 0
  */
 
 void print_chessboard(char (*a)[8])
