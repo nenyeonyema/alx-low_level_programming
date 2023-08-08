@@ -14,14 +14,16 @@ char *_strdup(char *str)
 	unsigned int i, j;
 	char *ptr;
 
+	if (str == NULL)
+	{
+		return (NULL);
+	}
+
 	i = 0;
 	while (str[i] != '\0')
 	{
 		i++;
 	}
-
-	if (str == NULL)
-		return (NULL);
 
 	ptr = (char *)malloc((i + 1) * sizeof(char));
 
