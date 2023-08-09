@@ -1,69 +1,77 @@
-#include "main.h"
 #include <stdlib.h>
+#include "main.h"
 
 /**
- * str_free_grid - this function frees the memory allocation
- * @grid: double pointer
- * @height: number of rows
- * Return: void
+ * count_word - helper function to count the number of words in a string
+ * @s: string to evaluate
+ *
+ * Return: number of words
  */
-
-void str_free_grid(char **grid, size_t height)
+int count_word(char *s)
 {
-	if (grid != NULL || height != 0)
+	int flag, c, w;
+
+	flag = 0;
+	w = 0;
+
+	for (c = 0; s[c] != '\0'; c++)
 	{
-		for (; height > 0; height--)
-		free(grid[height]);
-			free(grid[height]);
-		free(grid);
+		if (s[c] == ' ')
+			flag = 0;
+		else if (flag == 0)
+		{
+			flag = 1;
+			w++;
+		}
 	}
+
+	return (w);
 }
-
 /**
- * strtow - a function that splits a string into two.
- * @str: a string variable
- * Return: a double pointer
+ * **strtow - splits a string into words
+ * @str: string to split
+ *
+ * Return: pointer to an array of strings (Success)
+ * or NULL (Error)
  */
-
 char **strtow(char *str)
 {
-	size_t len, al, i, j, height;
-	char **split;
+	char **matrix, *tmp;
+	int i, k = 0, len = 0, words, c = 0, start, end;
 
-	if (str == NULL || *str == '\0')
+	while (*(str + len))
+		len++;
+	words = count_word(str);
+	if (words == 0)
 		return (NULL);
-	for (len = height = 0; str[len] != '\0'; len++)
-		if (str[len] != ' ' && (str[len + 1] == ' ' || str[len + 1] == '\0'))
-		height++;
+
+	matrix = (char **) malloc(sizeof(char *) * (words + 1));
+	if (matrix == NULL)
+		return (NULL);
+
+	for (i = 0; i <= len; i++)
 	{
-		split = malloc((height + 1) * sizeof(char *));
-	}
-		if (split == NULL)
+		if (str[i] == ' ' || str[i] == '\0')
 		{
-			free(split);
-			return (NULL);
-		}
-	for (i = al = 0; i < height; i++)
-	{
-		for (len = al; str[len] != '\0'; len++)
-		{
-			if (str[len] == ' ')
-				al++;
-			if (str[len] != ' ' && (str[len + 1] == ' ' || str[len + 1] == '\0'))
+			if (c)
 			{
-				split[i] = malloc((len - al + 2) * sizeof(char));
-				if (split[i] == NULL)
-				{
-					str_free_grid(split, i);
+				end = i;
+				tmp = (char *) malloc(sizeof(char) * (c + 1));
+				if (tmp == NULL)
 					return (NULL);
-				}
-				break;
+				while (start < end)
+					*tmp++ = str[start++];
+				*tmp = '\0';
+				matrix[k] = tmp - c;
+				k++;
+				c = 0;
 			}
 		}
-		for (j = 0; al <= len; al++, j++)
-			split[i][j] = str[al];
-		split[i][j] = '\0';
+		else if (c++ == 0)
+			start = i;
 	}
-	split[i] = NULL;
-	return (split);
+
+	matrix[k] = NULL;
+
+	return (matrix);
 }
