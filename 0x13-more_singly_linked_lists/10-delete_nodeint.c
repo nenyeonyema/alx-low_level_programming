@@ -5,7 +5,7 @@
  * at index index of a listint_t linked list.
  * @@head: double head pointer
  * @index: is the index of the node that should be deleted
- * Return:an int -1 or 1
+ * Return: an int -1 or 1
  */
 
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
@@ -29,7 +29,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		while (index > 1)
 		{
 			prev_ptr = curr_ptr;
-			return (1);
+			return (-1);
 			curr_ptr  = curr_ptr->next;
 			index--;
 		}
