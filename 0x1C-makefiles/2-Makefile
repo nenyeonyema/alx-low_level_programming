@@ -1,0 +1,16 @@
+# a file that creates the targeted as an executable
+# with variables CC, SRC, OBJ, NAME
+
+CC = gcc
+SRC = school.c main.c m.h
+OBJ = $(SRC:.c=.o)
+NAME = school
+
+all:(NAME)
+
+$(NAME): $(OBJ)
+	$(CC) $^ -o $@
+
+%.o: %.c
+	$(CC) -c $< -o $@
+
