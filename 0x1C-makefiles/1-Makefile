@@ -6,5 +6,5 @@ SRC := .c
 
 all: school
 
-school: school${SRC} main${SRC} m.h
-	${CC} $^ -o $@
+school: school$(SRC) main$(SRC) m.h
+	$(CC) $^ -o $@
