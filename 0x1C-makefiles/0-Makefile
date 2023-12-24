@@ -7,5 +7,5 @@
 all: school
 
 # Rule to build the 'school' executable
-school: school.c
-	gcc main.c -o school
+school: school.c main.c m.h
+	gcc school.c main.c -o school
