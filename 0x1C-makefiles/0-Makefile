@@ -9,8 +9,3 @@ all: school
 # Rule to build the 'school' executable
 school: main.c
 	gcc main.c -o school
-
-# Clean rule: 
-# Use this rule to remove the generated executable and any other generated files.
-clean:
-	rm -f school
