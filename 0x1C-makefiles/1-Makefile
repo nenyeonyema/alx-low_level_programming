@@ -2,9 +2,9 @@
 # rules all and variable CC and SRC
 
 CC := gcc
-SRC := .c
+SRC := school.c main.c m.h
 
 all: school
 
-school: school$(SRC) main$(SRC) m.h
+school: $(SRC)
 	$(CC) $^ -o $@
