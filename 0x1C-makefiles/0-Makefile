@@ -1,0 +1,16 @@
+# Makefile for building the school executable
+
+# Rule: all
+# The 'all' rule is the default target. 
+# It specifies that 'school' is the target and 'main.c' is its dependency.
+# When you run 'make all' or just 'make' without any target specified, it will build the 'school' executable.
+all: school
+
+# Rule to build the 'school' executable
+school: main.c
+	gcc main.c -o school
+
+# Clean rule: 
+# Use this rule to remove the generated executable and any other generated files.
+clean:
+	rm -f school
