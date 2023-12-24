@@ -1,10 +1,10 @@
 # name of executable: school
 # rules all and variable CC and SRC
-
 CC := gcc
 SRC := school.c main.c m.h
 
 all: school
+
 
 school: $(SRC)
 	$(CC) $^ -o $@
