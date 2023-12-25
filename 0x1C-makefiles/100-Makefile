@@ -1,0 +1,43 @@
+# Variables
+CC = gcc
+SRC = main.c m.h
+NAME = school
+RM = rm -f
+
+# Flags
+CFLAGS := -Wall -Werror -Wextra -pedantic
+
+# Default target
+all: $(NAME)
+
+# Rule for linking the object files and creating the executable
+$(NAME): $(SRC:.c=.o)
+	$(CC) $(CFLAGS) $^ -o $@
+
+# Rule for compiling the source files
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Rule for cleaning up Emacs, Vim temporary files, and the executable
+clean:
+	$(RM) *~ $(NAME)
+
+# Rule for cleaning object files
+oclean:
+	$(RM) *.o
+
+# Rule for full cleanup
+fclean: clean oclean
+	$(RM) $(NAME)
+
+# Rule to force recompilation
+re: fclean all
+
+# Ensure that clean, oclean, fclean, and re rules never fail
+.PHONY: all clean oclean fclean re
+
+# Check if m.h exists
+ifeq (,$(wildcard m.h))
+$(error "m.h header file is missing!")
+endif
+
