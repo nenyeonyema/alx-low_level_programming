@@ -2,11 +2,11 @@
 
 # Variables
 
-CC := gcc
-SRC := school.c main.c m.h
-OBJ := $(SRC:.c=.o)
-NAME := school
-RM := rm -f
+CC = gcc
+SRC = school.c main.c m.h
+OBJ = $(SRC:.c=.o)
+NAME = school
+RM = rm -f
 
 # Rule: all (Default target)
 # The 'all' rule specifies that 'school' is the target.
