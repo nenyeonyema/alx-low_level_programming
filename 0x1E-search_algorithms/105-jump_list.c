@@ -34,7 +34,8 @@ current = current->next;
 printf("Value checked at index [%lu] = [%d]\n", current->index, current->n);
 }
 
-printf("Value found between indexes [%lu] and [%lu]\n", prev->index, current->index);
+printf("Value found between indexes [%lu] and [%lu]\n",
+		prev->index, current->index);
 
 /* Perform linear search in the range defined by prev and current */
 while (prev != NULL && prev->index <= current->index)

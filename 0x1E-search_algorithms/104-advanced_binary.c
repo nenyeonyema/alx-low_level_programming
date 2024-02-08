@@ -7,8 +7,8 @@
 * @array: A pointer to the first element of the array to search in.
 * @size: The number of elements in the array.
 * @value: The value to search for.
-*
-* Return: The index where value is located, or -1 if not found or array is NULL.
+* Return: The index where value is located,
+* or -1 if not found or array is NULL.
 */
 int advanced_binary(int *array, size_t size, int value)
 {
