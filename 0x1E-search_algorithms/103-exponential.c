@@ -29,7 +29,7 @@ high = (bound < size - 1) ? bound : size - 1;
 
 printf("Value found between indexes [%lu] and [%lu]\n", low, high);
 
-return (binary_search(array, size, value, low, high));
+return (binary_search2(array, size, value, low, high));
 }
 
 /**
@@ -44,7 +44,7 @@ return (binary_search(array, size, value, low, high));
 *
 * Return: The index where value is located, or -1 if not found.
 */
-int binary_search(int *array, size_t size, int value, size_t low, size_t high)
+int binary_search2(int *array, size_t size__attribute__((unused)), int value, size_t low, size_t high)
 {
 
 size_t mid;
